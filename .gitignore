@@ -134,11 +134,10 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
-# pickle
-.p
+# Config
 
-# data-folder
-data/
+config.ini
+email_list.csv
 
 ### VisualStudioCode ###
 .vscode/*
