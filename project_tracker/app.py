@@ -4,8 +4,7 @@ import os
 from project_tracker.helpers import table_parser, email, utils
 
 URL = 'https://www.cs.hioa.no/data/bachelorprosjekt/Prosjektforslag.php'
-ROOT_DIR = utils.get_project_root()
-PROJECT_LIST_PATH = os.path.join(ROOT_DIR, 'data', 'project_list.p')
+PROJECT_LIST_PATH = os.path.join(utils.get_project_root(), 'data', 'project_list.p')
 
 def run():
     new_project_list = extract_project_list_from_url()
@@ -14,8 +13,7 @@ def run():
         previous_project_list = load_project_list()
         number_of_new_items = len(new_project_list) - len(previous_project_list)
         if number_of_new_items > 0:
-            #email.send_email(new_project_list, number_of_new_items)
-            pass
+            email.send_email(new_project_list, number_of_new_items)
     else:
         save_project_list(new_project_list)
 
