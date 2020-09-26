@@ -134,6 +134,12 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
+# pickle
+.p
+
+# data-folder
+data/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
