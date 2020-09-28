@@ -139,6 +139,10 @@ dmypy.json
 config.ini
 email_list.csv
 
+# Tests
+
+test.py
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json

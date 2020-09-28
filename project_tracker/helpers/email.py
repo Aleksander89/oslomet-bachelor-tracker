@@ -10,7 +10,6 @@ def send_email(project_list, num_new_items) -> None:
     server, port = get_server_info_from_config()
     user, pw = get_credentials_from_config()
 
-
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(server, port, context=context) as server:
@@ -45,7 +44,7 @@ def read_config() -> configparser.ConfigParser:
 def create_message(project_list: List, num_new_items: int) -> str:
     projects = ""
 
-    for project in project_list:
+    for project in project_list[-num_new_items:]:
         projects += ' '.join(project)
         projects += '\n'
 
