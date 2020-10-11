@@ -14,8 +14,8 @@ def run():
         number_of_new_items = len(new_project_list) - len(previous_project_list)
         if number_of_new_items > 0:
             email.send_email(new_project_list, number_of_new_items)
-    else:
-        save_project_list(new_project_list)
+            
+    save_project_list(new_project_list)
 
 def extract_project_list_from_url():
     try:
