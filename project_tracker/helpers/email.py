@@ -50,8 +50,8 @@ def create_message(project_list: List, num_new_items: int) -> str:
 
     message = 'Subject: ' + str(num_new_items) + ' nye bachelorprosjekter!\n\n' + \
     'Hei {},' + '\nDet er lagt ut ' + str(num_new_items) + ' nye bachelorprosjekter:\n\n' + projects + \
-    '\nSjekk de ut her :' + \
-    'https://www.cs.hioa.no/data/bachelorprosjekt/Prosjektforslag.php' 
+    '\nSjekk de ut her:' + \
+    ' https://www.cs.hioa.no/data/bachelorprosjekt/Prosjektforslag.php' 
 
     # Temporary hack to ignore non-ascii characters
     return ''.join([i if ord(i) < 128 else ' ' for i in message])
