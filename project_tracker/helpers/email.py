@@ -1,4 +1,9 @@
-import configparser, os, smtplib, ssl, csv
+import configparser
+import os
+import smtplib
+import ssl
+import csv
+
 from typing import List, Tuple
 from .utils import get_project_root
 
