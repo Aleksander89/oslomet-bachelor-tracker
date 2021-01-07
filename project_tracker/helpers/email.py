@@ -53,6 +53,6 @@ def create_message(project_list: List, num_new_items: int) -> str:
     '\nSjekk de ut her:' + \
     ' https://www.cs.hioa.no/data/bachelorprosjekt/Prosjektforslag.php' 
 
-    # Temporary hack to ignore non-ascii characters
+    # Hack to ignore non-ascii characters
     return ''.join([i if ord(i) < 128 else ' ' for i in message])
 
