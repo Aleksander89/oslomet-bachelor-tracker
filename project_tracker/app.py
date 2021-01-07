@@ -16,8 +16,7 @@ def run() -> None:
         previous_project_list = load_project_list()
         number_of_new_items = len(new_project_list) - len(previous_project_list)
         if number_of_new_items > 0:
-            #email.send_email(new_project_list, number_of_new_items)
-            print('HEI!')
+            email.send(new_project_list, number_of_new_items)
             
     save_project_list(new_project_list)
 
