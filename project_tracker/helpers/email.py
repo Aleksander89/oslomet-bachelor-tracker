@@ -11,9 +11,9 @@ ROOT_DIR = get_project_root()
 CONFIG_PATH = os.path.join(ROOT_DIR, 'data', 'config.ini')
 EMAIL_LIST_PATH = os.path.join(ROOT_DIR, 'data', 'email_list.csv')
 
-def send_email(project_list, num_new_items) -> None:
-    server, port = get_server_info_from_config()
-    user, pw = get_credentials_from_config()
+def send(project_list, num_new_items) -> None:
+    server, port = _get_server_info_from_config()
+    user, pw = _get_credentials_from_config()
 
     context = ssl.create_default_context()
 
@@ -27,21 +27,21 @@ def send_email(project_list, num_new_items) -> None:
                 message = create_message(project_list, num_new_items).format(name)
                 server.sendmail(user, email, message)
 
-def get_server_info_from_config() -> Tuple[str, str]:
+def _get_server_info_from_config() -> Tuple[str, str]:
     config = read_config()
     server = config['gmail']['server']
     port = config['gmail']['port']
 
     return (server, port)
 
-def get_credentials_from_config() -> Tuple[str, str]:
+def _get_credentials_from_config() -> Tuple[str, str]:
     config = read_config()
     user = config['gmail']['username']
     pw = config['gmail']['password']
 
     return (user, pw)
 
-def read_config() -> configparser.ConfigParser:
+def _read_config() -> configparser.ConfigParser:
     config = configparser.ConfigParser()
     config.read(CONFIG_PATH)
     return config
