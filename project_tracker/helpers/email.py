@@ -24,7 +24,7 @@ def send(project_list, num_new_items) -> None:
             reader = csv.reader(email_list)
             next(reader)
             for name, email in reader:
-                message = create_message(project_list, num_new_items).format(name)
+                message = _create_message(project_list, num_new_items).format(name)
                 server.sendmail(user, email, message)
 
 def _get_server_info_from_config() -> Tuple[str, str]:
@@ -46,7 +46,7 @@ def _read_config() -> configparser.ConfigParser:
     config.read(CONFIG_PATH)
     return config
 
-def create_message(project_list: List, num_new_items: int) -> str:
+def _create_message(project_list: List, num_new_items: int) -> str:
     projects = ""
 
     for project in project_list[-num_new_items:]:
